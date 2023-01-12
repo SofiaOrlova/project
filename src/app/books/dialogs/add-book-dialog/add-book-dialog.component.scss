@@ -1,0 +1,46 @@
+.mat-mdc-form-field{
+    display: block;
+}
+
+.ng-star-inserted{
+    width: 560px !important;
+}
+
+.mdc-dialog__title{
+    margin: 0;
+    padding: 24px 24px 16px 24px;
+}
+.mdc-dialog__title::before{
+    height: 0;
+}
+
+.mdc-dialog, .mdc-dialog__content {
+    padding: 0 24px;
+}
+
+.mat-mdc-dialog-container, .mdc-dialog__title {
+    font-family: Roboto !important;
+    line-height: 32px !important;
+    font-size: 24px !important;
+    font-weight: 400 !important;
+}
+
+.mdc-dialog__actions{
+    padding: 24px;
+}
+
+.mat-mdc-dialog-actions {
+    justify-content: end;
+}
+
+.mdc-button {
+    padding: 0 24px 0 24px;
+}
+
+.mdc-button, .mdc-button__label{
+    font-family: Roboto !important;
+    line-height: 20px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+

@@ -1,0 +1,9 @@
+<h1>Книги</h1>
+<button mat-raised-button color='primary' (click)="addBook()">Добавить книгу</button>
+
+<div *ngFor="let book of bookService.getList() | async">
+  {{ book.author | author }}: {{ book.name }}
+  <button mat-icon-button (click)="editBook(book)">
+    <mat-icon>edit</mat-icon>
+  </button>
+</div>

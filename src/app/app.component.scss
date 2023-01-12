@@ -1,0 +1,66 @@
+$menuBreakpoint: 839px;
+
+:host {
+  flex-grow: 1;
+  display: flex;
+}
+
+.burger{
+  display: none;
+  @media (max-width: $menuBreakpoint){
+    display: block;
+    padding-top: 15px;
+  }
+}
+.menu{
+  @media (max-width: $menuBreakpoint){
+    .for-large-screen{
+      display: none;
+    }
+    &.is-open{
+      .for-large-screen{
+        display: block;
+        font-size: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        text-align: center;
+      }
+      a{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+      }
+    }
+  }
+}
+.menu-logout{
+  display: flex;
+
+}
+.but-logout{
+  height: 24px !important;
+  font-size: 24px;
+}
+
+::ng-deep .mat-drawer-inner-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-mdc-action-list{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.mat-mdc-raised-button.mat-unthemed {
+  --mdc-protected-button-container-color:#c7beaa;
+  --mdc-protected-button-label-text-color: #000;
+}
+
+.logout{
+  padding-left: 16px;
+}
+
