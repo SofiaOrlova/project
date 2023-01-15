@@ -1,0 +1,15 @@
+@use 'src/scss/theme/typography';
+
+.field-edit{
+    margin-right: 10px;
+}
+
+.edit-title{
+    @include typography.body-large;
+}
+
+.edit-button{
+    @include typography.body-large;
+    padding: 0 24px;
+    margin-bottom: 10px;
+}

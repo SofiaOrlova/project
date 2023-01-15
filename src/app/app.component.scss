@@ -2,7 +2,8 @@ $menuBreakpoint: 839px;
 
 :host {
   flex-grow: 1;
-  display: flex;
+  //display: flex;
+  display: grid;
 }
 
 .burger{
@@ -36,13 +37,30 @@ $menuBreakpoint: 839px;
 }
 .menu-logout{
   display: flex;
-
+  flex-direction: column;
+  min-width: 292px;
+  @media(max-width: $menuBreakpoint) {
+    max-width: 85px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 .but-logout{
   height: 24px !important;
   font-size: 24px;
 }
-
+.menu-log{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  @media(max-width: 839px) {
+    margin-bottom: 8px;
+    .for-large-screen{
+      display: none;
+    }
+  }
+}
 ::ng-deep .mat-drawer-inner-container{
   display: flex;
   flex-direction: column;
@@ -60,7 +78,5 @@ $menuBreakpoint: 839px;
   --mdc-protected-button-label-text-color: #000;
 }
 
-.logout{
-  padding-left: 16px;
-}
+
 

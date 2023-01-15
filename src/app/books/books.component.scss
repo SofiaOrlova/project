@@ -1,0 +1,14 @@
+@use 'src/scss/theme/typography';
+
+.title-books{
+    @include typography.headline-medium;
+    text-align: center;
+    @media (max-width: 839px){
+        @include typography.title-large;
+    }
+}
+
+.books-button{
+    margin-left: 0;
+    margin-right: 20px;
+}

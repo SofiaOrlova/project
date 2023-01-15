@@ -6,6 +6,7 @@ import { NotAuthGuard } from './auth/not-auth.guard';
 import {BooksComponent} from "./books/books.component";
 import {PageOneComponent} from "./pages/page-one/page-one.component";
 import {PageTwoComponent} from "./pages/page-two/page-two.component";
+import {RegisterComponent} from "./auth/register/register.component";
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
     redirectTo: 'page-1',
     pathMatch: 'full'
     
+  },
+  {
+    path: 'page-1',
+    component: PageOneComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'books',
@@ -24,30 +30,31 @@ const routes: Routes = [
     canActivate: [NotAuthGuard]
   },
   {
-    path: 'page-1',
-    component: PageOneComponent,
-    canActivate: [AuthGuard]
+    path: 'auth/register',
+    component: RegisterComponent,
+    canActivate: [NotAuthGuard]
   },
-  {
-    path: 'page-2',
-    component: PageTwoComponent,
-    canActivate: [AuthGuard]
-  },
+  // {
+  //   path: 'page-2',
+  //   component: PageTwoComponent,
+  //   canActivate: [AuthGuard]
+  // },
   {
     path: 'page-3',
     component: PageTwoComponent,
     canActivate: [AuthGuard]
-  },
-  {
-    path: 'page-4',
-    component: PageTwoComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'page-5',
-    component: PageTwoComponent,
-    canActivate: [AuthGuard]
   }
+  //,
+  // {
+  //   path: 'page-4',
+  //   component: PageTwoComponent,
+  //   canActivate: [AuthGuard]
+  // },
+  // {
+  //   path: 'page-5',
+  //   component: PageTwoComponent,
+  //   canActivate: [AuthGuard]
+  // }
 ];
 
 @NgModule({

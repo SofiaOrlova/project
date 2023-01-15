@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AuthService} from "../auth.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginModel} from "../models/login.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -10,11 +11,11 @@ import {LoginModel} from "../models/login.model";
 })
 export class LoginComponent {
   public loginForm = new FormGroup({
-    email: new FormControl('', [
+    email: new FormControl('test@email.ru', [
       Validators.required,
       Validators.email
     ]),
-    password: new FormControl('', Validators.required),
+    password: new FormControl('test-password', Validators.required),
   });
 
   public get email(): FormControl {
@@ -28,7 +29,8 @@ export class LoginComponent {
   public isLoginFailed: boolean = false;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
   ) {
   }
 
@@ -36,8 +38,13 @@ export class LoginComponent {
     let model = new LoginModel();
     model.email = this.email.value;
     model.password = this.password.value;
-    this.authService.login(model).subscribe((result) => {
-      this.isLoginFailed = !result;
-    });
+    this.authService.login(model).subscribe(
+      result => {
+        this.router.navigate(['/page-1']);
+      },
+      error => {
+        this.isLoginFailed = true;
+      }
+    );
   }
 }

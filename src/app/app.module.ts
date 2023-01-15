@@ -11,17 +11,23 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {PageOneComponent} from './pages/page-one/page-one.component';
 import {PageTwoComponent} from './pages/page-two/page-two.component';
 import { LoginComponent } from './auth/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {JwtInterceptor} from "./interceptors/jwt.interceptor";
+import { RegisterComponent } from './auth/register/register.component';
+//import { RegisterComponent } from './auth/register/register.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PageOneComponent,
     PageTwoComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     MatButtonModule,
     MatSidenavModule,
     MatFormFieldModule,
@@ -36,7 +43,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatListModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

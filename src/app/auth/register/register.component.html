@@ -1,7 +1,15 @@
 <div class="container">
 
-    <form [formGroup]="loginForm">
-      <mat-form-field class="form-field">
+    <form [formGroup]="registerForm">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name">
+      </mat-form-field>
+      <ng-container *ngIf="name.dirty || name.touched">
+        <mat-error *ngIf="name.hasError('required')">Name is required</mat-error>
+      </ng-container>
+  
+      <mat-form-field>
         <mat-label>Email</mat-label>
         <input matInput type="text" formControlName="email">
       </mat-form-field>
@@ -17,11 +25,10 @@
       <ng-container *ngIf="password.dirty || password.touched">
         <mat-error *ngIf="email.hasError('required')">Password is required</mat-error>
       </ng-container>
-  
-      <mat-error *ngIf="isLoginFailed">Something went wrong</mat-error>
     </form>
   
-    <a class="button-login" mat-button routerLink="/auth/register">Зарегистрироваться</a>
-    <button mat-button (click)="login()" [disabled]="loginForm.invalid" class="button-login">Войти</button>
+
+    <button class="button-reg" mat-button (click)="signup()" [disabled]="registerForm.invalid">Зарегистрироваться</button>
+    <a class="button-reg" mat-button routerLink="/auth/login">Войти</a> 
   
-  </div>
+</div>
