@@ -4,16 +4,23 @@
 <button class="books-button" mat-raised-button color='primary' (click)="addBooks()">Добавить книги</button>
 <button class="books-button" mat-raised-button color='primary' (click)="deleteBooks()">Удалить книги</button>
 
-<!-- <div *ngFor="let book of bookService.getList() | async">
-  {{ book.author | author }}: {{ book.name }}
-  <button mat-icon-button (click)="editBook(book)">
-    <mat-icon>edit</mat-icon>
-  </button>
-</div> -->
-
 <div *ngFor="let book of books">
-  {{book.author}}: {{book.name}}
-  <button mat-icon-button (click)="editBook(book)">
-    <mat-icon>edit</mat-icon>
-  </button>
+  <div class="book-panel">
+    <div class="book-author">
+      <div class="book-author-name">
+        {{book.author}}
+      </div>
+      <div class="book-name">
+        {{book.name}}
+      </div>
+    </div>
+    <div class="book-functions">
+      <button mat-icon-button (click)="editBook(book)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteBook(book)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>

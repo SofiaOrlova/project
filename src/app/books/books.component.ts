@@ -12,14 +12,14 @@ import {IBook} from "../interfaces/book";
 })
 export class BooksComponent implements OnInit{
 
-  public books: IBook[] = [];
-
   constructor(
    // public bookService: BookService,
     private dialog: MatDialog,
-    private bookService: BookService
+    public bookService: BookService
   ) {
   }
+
+  public books: IBook[] = [];
 
   ngOnInit(): void {
     this.loadBooks();
@@ -37,6 +37,12 @@ export class BooksComponent implements OnInit{
     })
   }
 
+  public deleteBook(book: IBook) {
+    this.bookService.deleteBook(book).subscribe(_ => {
+      this.loadBooks();
+    })
+  }
+  
   private loadBooks(): void {
     this.bookService.getBooks().subscribe(result => {
       this.books = result;
@@ -55,13 +61,18 @@ export class BooksComponent implements OnInit{
 
   public editBook(book: IBook) {
     const dialogRef = this.dialog.open(EditBookDialogComponent, {
-      data: book,
+      data: { book, }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.bookService.editBook(result).subscribe();
+        this.bookService.editBook(result).subscribe(_ => {
+          this.loadBooks();
+        });
       }
     });
   }
+
+
+  
 }

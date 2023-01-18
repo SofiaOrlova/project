@@ -11,4 +11,28 @@
 .books-button{
     margin-left: 0;
     margin-right: 20px;
+    margin-bottom: 25px;
+}
+
+.book-panel{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.book-author{
+    display: grid;
+}
+
+.book-author-name{
+    @include typography.body-large ;
+}
+
+.book-name{
+    @include typography.body-medium;
+    max-width: 90ch;
+}
+
+.book-functions{
+    margin-left: 10px;
 }

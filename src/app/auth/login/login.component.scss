@@ -16,20 +16,13 @@
   font-size: 16px;
   border-radius: 20px;
   text-decoration: none;
-  background-color: whitesmoke;
   height: 50px;
-  //border: 0.5px solid rgba(0, 0, 0, 0.4);
   box-shadow: 
-  -10px -10px 15px rgba(255, 255, 255, 0.5),
-  10px 10px 15px rgba(70, 70, 70, 0.12),
-  inset -10px -10px 15px rgba(255, 255, 255, 0.5),
-  inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+    -10px -10px 15px rgba(255, 255, 255, 0.5),
+    10px 10px 15px rgba(70, 70, 70, 0.12),
+    inset -10px -10px 15px rgba(255, 255, 255, 0.5),
+    inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+    @media(prefers-color-scheme: light){
+      background-color: whitesmoke;
+    }
 }
-
-// .form-field{
-//   box-shadow: 
-//   -10px -10px 15px rgba(255, 255, 255, 0.5),
-//   10px 10px 15px rgba(70, 70, 70, 0.12),
-//   inset -10px -10px 15px rgba(255, 255, 255, 0.5),
-//   inset 10px 10px 15px rgba(70, 70, 70, 0.12);
-// }

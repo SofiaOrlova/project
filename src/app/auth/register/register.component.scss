@@ -15,7 +15,9 @@
     font-size: 16px;
     border-radius: 20px;
     text-decoration: none;
-    background-color: whitesmoke;
+    @media(prefers-color-scheme: light){
+      background-color: whitesmoke;
+    }
     height: 50px;
     box-shadow: 
     -10px -10px 15px rgba(255, 255, 255, 0.5),

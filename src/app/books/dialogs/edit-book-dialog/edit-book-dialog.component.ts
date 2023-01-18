@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {IBook} from "../../../interfaces/book";
+import {IAuthor} from "../../../interfaces/author";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -10,13 +11,13 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class EditBookDialogComponent implements OnInit {
 
-  public book: IBook = {
-    name: 'Инквизитор Эйзенхорн',
-    author: {
-      firstName: 'Ден',
-      lastName: 'Абнетт'
-    }
-  } as IBook;
+  // public book: IBook = {
+  //   name: 'Инквизитор Эйзенхорн',
+  //   author: {
+  //     firstName: 'Ден',
+  //     lastName: 'Абнетт'
+  //   }
+  // } as IBook;
 
   public bookForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -44,7 +45,7 @@ export class EditBookDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EditBookDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data?: IBook,
+    @Inject(MAT_DIALOG_DATA) public data?: IBook, 
   ) {
   }
 
