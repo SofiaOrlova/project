@@ -1,8 +1,10 @@
 <h1 class="title-books">Коллекция книг</h1>
 <!-- <button mat-raised-button color='primary' (click)="addBook()">Добавить книгу</button> -->
-
-<button class="books-button" mat-raised-button color='primary' (click)="addBooks()">Добавить книги</button>
-<button class="books-button" mat-raised-button color='primary' (click)="deleteBooks()">Удалить книги</button>
+<div class="books-button">
+  <button class="book-button" mat-raised-button color='primary' (click)="addBooks()">Добавить книги</button>
+  <button class="book-button" mat-raised-button color='primary' (click)="deleteBooks()">Удалить книги</button>
+  <button class="book-button" mat-raised-button color='primary' (click)="addBook()">Cоздать книгу</button>
+</div>
 
 <div *ngFor="let book of books">
   <div class="book-panel">

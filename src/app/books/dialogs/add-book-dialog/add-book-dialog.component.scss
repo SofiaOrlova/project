@@ -1,3 +1,9 @@
+.add-panel{
+    @media(prefers-color-scheme: dark){
+        background-color: var(--md-sys-color-on-secondary) !important;
+    }
+}
+
 .mat-mdc-form-field{
     display: block;
 }

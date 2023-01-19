@@ -49,6 +49,18 @@ export class BooksComponent implements OnInit{
     })
   }
 
+  public addBook() {
+    const dialogRef = this.dialog.open(AddBookDialogComponent);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.bookService.addBook(result).subscribe(_ => {
+          this.loadBooks();
+        });
+      }
+      // this.loadBooks();
+    });
+  }
+
   // public addBook() {
   //   const dialogRef = this.dialog.open(AddBookDialogComponent);
 
@@ -59,12 +71,36 @@ export class BooksComponent implements OnInit{
   //   });
   // }
 
-  public editBook(book: IBook) {
-    const dialogRef = this.dialog.open(EditBookDialogComponent, {
-      data: { book, }
-    });
+  // public editBook(book: IBook) {
+  //   const dialogRef = this.dialog.open(EditBookDialogComponent, {
+  //     data: { book, }
+  //   });
 
-    dialogRef.afterClosed().subscribe(result => {
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result) {
+  //       this.bookService.editBook(result).subscribe(_ => {
+  //         this.loadBooks();
+  //       });
+  //     }
+  //   });
+  // }
+  public editBook(book: IBook) {
+    let authorFullName: string = JSON.stringify(book.author);
+    let authorFullNameTrimmed = authorFullName.substring(1, authorFullName.length - 1);
+    let authorLastName: string = authorFullNameTrimmed.split(' ')[0];
+    let authorFirstName: string = authorFullNameTrimmed.split(' ')[1];
+    const dialogRef = this.dialog.open(EditBookDialogComponent, {
+      // data: book,
+      data: {
+        id: book.id,
+        name: book.name,
+        author: {
+          firstName: authorFirstName,
+          lastName: authorLastName
+        }
+      }
+    });
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.bookService.editBook(result).subscribe(_ => {
           this.loadBooks();
@@ -72,7 +108,5 @@ export class BooksComponent implements OnInit{
       }
     });
   }
-
-
   
 }

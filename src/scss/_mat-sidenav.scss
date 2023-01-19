@@ -37,17 +37,17 @@ $menuBreakpoint: 839px;
   background-color: var(--md-sys-color-on-secondary) !important;
 }
 
-.mat-mdc-form-field-subscript-wrapper{
-  @media(prefers-color-scheme: dark){
-  background-color: #b1ac97 !important;
-  }
-}
+// .mat-mdc-form-field-subscript-wrapper{
+//   @media(prefers-color-scheme: dark){
+//   background-color: #b1ac97 !important;
+//   }
+// }
 
-.mat-mdc-raised-button, .mat-primary{
-  @media(prefers-color-scheme: dark){
-    background-color: var(--md-sys-color-secondary-container) !important;
-  }
-}
+// .mat-mdc-raised-button, .mat-primary{
+//   @media(prefers-color-scheme: dark){
+//     background-color: var(--md-sys-color-secondary-container) !important;
+//   }
+// }
 
 .mat-drawer-content{
   @media(prefers-color-scheme: dark){
@@ -57,7 +57,7 @@ $menuBreakpoint: 839px;
 
 .mat-icon{
   @media (max-width: $menuBreakpoint){
-    margin-bottom: 4px;
+   // margin-bottom: 4px;
   }
 }
 

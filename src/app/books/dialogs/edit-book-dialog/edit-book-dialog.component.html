@@ -1,25 +1,28 @@
-<h1 class="edit-title" mat-dialog-title>Изменить книгу</h1>
+<div class="edit-panel">
+  <h1 class="edit-title" mat-dialog-title>Изменить книгу</h1>
 
-<div mat-dialog-content>
-  <form [formGroup]="bookForm">
-    <div formGroupName="author">
+  <div mat-dialog-content>
+    <form [formGroup]="bookForm">
+      <div formGroupName="author">
+        <mat-form-field class="field-edit">
+          <mat-label>Имя автора</mat-label>
+          <input matInput type="text" formControlName="firstName">
+        </mat-form-field>
+        <mat-form-field class="field-edit">
+          <mat-label>Фамилия автора</mat-label>
+          <input matInput type="text" formControlName="lastName">
+        </mat-form-field>
+      </div>
       <mat-form-field class="field-edit">
-        <mat-label>Имя автора</mat-label>
-        <input matInput type="text" formControlName="firstName">
+        <mat-label>Название</mat-label>
+        <input matInput type="text" formControlName="name">
       </mat-form-field>
-      <mat-form-field class="field-edit">
-        <mat-label>Фамилия автора</mat-label>
-        <input matInput type="text" formControlName="lastName">
-      </mat-form-field>
-    </div>
-    <mat-form-field class="field-edit">
-      <mat-label>Название</mat-label>
-      <input matInput type="text" formControlName="name">
-    </mat-form-field>
-  </form>
+    </form>
+  </div>
+  
+  <div mat-dialog-actions>
+    <button class="edit-button" mat-button (click)="onCancelClick()">Отмена</button>
+    <button class="edit-button" mat-button (click)="onAddClick()" [disabled]="bookForm.invalid">Изменить</button>
+  </div>
 </div>
 
-<div mat-dialog-actions>
-  <button class="edit-button" mat-button (click)="onCancelClick()">Отмена</button>
-  <button class="edit-button" mat-button (click)="onAddClick()" [disabled]="bookForm.invalid">Изменить</button>
-</div>

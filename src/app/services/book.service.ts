@@ -29,31 +29,21 @@ export class BookService {
     return this.httpClient.delete(environment.apiUrl + 'books');
   }
 
-  // public addBook(book: IBook): Observable<any> {
-  //   this._currentId++;
-  //   book.id = this._currentId;
-  //   this._books.push(book);
-  //   return of();
-  // }
 
-  // public editBook(book: IBook): Observable<any> {
-  //   const index = this._books.findIndex(b => b.id == book.id);
-  //   if (index != -1) {
-  //     this._books[index] = book;
-  //   }
-  //   return of();
-  // }
+  public addBook(book: IBook): Observable<any> {
+    return this.httpClient.post(environment.apiUrl + 'books', {
+      author: book.author.lastName + ' ' + book.author.firstName,
+      name: book.name,
+    });
+  }
 
-  public editBook = (book: IBook): Observable<any> =>
-  this.httpClient.put<IBook[]>(environment.apiUrl + `books/${book.id}`, 
-    { name: book.name, author: {firstName: book.author.firstName, lastName: book.author.lastName } }, {
-      headers: new HttpHeaders({ ['Content-Type']: 'application/json' })
-  })
-    .pipe(
-      tap({
-        complete: (() => this.getBooks().subscribe(b => this._books = b))
-      })
-    )
+
+  public editBook(book: IBook): Observable<any> {
+    return this.httpClient.put(environment.apiUrl + 'books/' + book.id, {
+      author: book.author.lastName + ' ' + book.author.firstName,
+      name: book.name,
+    });
+  }
 
   public deleteBook = (book: IBook): Observable<any> =>
     this.httpClient.delete<IBook[]>(environment.apiUrl + `books/${book.id}`, {})
